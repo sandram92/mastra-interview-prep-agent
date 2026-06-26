@@ -149,15 +149,21 @@ export default function InterviewAgent() {
               </label>
 
               <div className="flex flex-col gap-3 sm:flex-row">
-                <input
-                  id="message-input"
-                  type="text"
-                  value={input}
-                  onChange={(event) => setInput(event.target.value)}
-                  placeholder="Ask about your repo or request an interview question"
-                  disabled={isLoading}
-                  className="w-full rounded-xl border border-slate-300 bg-white/90 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-500 focus:ring-2 focus:ring-slate-200 disabled:cursor-not-allowed disabled:opacity-70 dark:border-slate-700 dark:bg-slate-950/70 dark:text-slate-100 dark:focus:border-slate-400 dark:focus:ring-slate-700"
-                />
+                <div
+                  className={`loading-input-shell w-full rounded-xl p-[2px] ${
+                    isLoading ? "is-loading" : ""
+                  }`}
+                >
+                  <input
+                    id="message-input"
+                    type="text"
+                    value={input}
+                    onChange={(event) => setInput(event.target.value)}
+                    placeholder="Ask about your repo or request an interview question"
+                    disabled={isLoading}
+                    className="relative z-10 w-full rounded-[10px] border border-slate-300 bg-white/90 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-500 focus:ring-2 focus:ring-slate-200 disabled:cursor-not-allowed dark:border-slate-700 dark:bg-slate-950/70 dark:text-slate-100 dark:focus:border-slate-400 dark:focus:ring-slate-700"
+                  />
+                </div>
 
                 <button
                   type="submit"
